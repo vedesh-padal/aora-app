@@ -57,19 +57,15 @@ const Create = () => {
     }
 
     setUploading(true);
-    console.log('before calling appwritejs for createVideo')
     try {
       await createVideo({
         ...form,
         userId: user.$id
       });
-      console.log('video created');
-
 
       Alert.alert('Success', 'Post Uploaded successfully');
       router.push('/home')
     } catch (error) {
-      console.log('reaching here to show the $id error of undefined')
       Alert.alert('Error', error.message)
     } finally {
       setForm({
